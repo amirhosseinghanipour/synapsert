@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+package synapsert;
+
+// Represents a tensor in the computational graph
 message Tensor {
     string name = 1;
     repeated int32 shape = 2; // Dynamic shapes supported
@@ -12,6 +15,7 @@ message Tensor {
     string padding = 9;              // Padding information (e.g., SAME, VALID)
 }
 
+// Represents an operation (node) in the computational graph
 message Node {
     string name = 1;
     string op_type = 2;      // Operation type 
@@ -24,6 +28,7 @@ message Node {
     string hardware_specific_info = 9;      // Hardware-specific optimization metadata
 }
 
+// Represents the entire computational graph
 message Graph {
     repeated Node nodes = 1;
     map<string, Tensor> tensors = 2; // All tensors in the graph
