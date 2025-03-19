@@ -5,6 +5,11 @@ message Tensor {
     repeated int32 shape = 2; // Dynamic shapes supported
     string dtype = 3;        // Data type (e.g., float32, int8)
     bytes data = 4;          // Serialized tensor data
+    string layout = 5;               // Memory layout (e.g., NCHW, NHWC)
+    map<string, float> quant_params = 6; // Quantization parameters (scale, zero-point)
+    bool is_sparse = 7;              // Flag indicating if the tensor is sparse
+    repeated int32 strides = 8;      // Strides for each dimension
+    string padding = 9;              // Padding information (e.g., SAME, VALID)
 }
 
 message Node {
