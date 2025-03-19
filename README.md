@@ -1,5 +1,6 @@
 # SynapseRT
 **A Hardware-Agnostic Compute Abstraction Machine Learning Runtime (In Development)**
+
 SynapseRT is an upcoming framework designed to convert, optimize, and execute machine learning models across GPUs, TPUs, CPUs, and edge devices. It's currently under active development built from the ground up for flexibility and performance.
 
 ## Vision
