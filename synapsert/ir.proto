@@ -18,6 +18,10 @@ message Node {
     map<string, string> attributes = 3; // Attributes for the operation
     repeated string inputs = 4; // Input tensor names
     repeated string outputs = 5; // Output tensor names
+    string control_flow = 6;                // Control flow information (e.g., if, while)
+    bool fused = 7;                         // Flag indicating if the node is part of a fused kernel
+    float execution_time_estimate = 8;      // Estimated execution time for profiling
+    string hardware_specific_info = 9;      // Hardware-specific optimization metadata
 }
 
 message Graph {
