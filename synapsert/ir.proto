@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message Tensor {
+    string name = 1;
+    repeated int32 shape = 2; // Dynamic shapes supported
+    string dtype = 3;        // Data type (e.g., float32, int8)
+    bytes data = 4;          // Serialized tensor data
+}
+
+message Node {
+    string name = 1;
+    string op_type = 2;      // Operation type 
+    map<string, string> attributes = 3; // Attributes for the operation
+    repeated string inputs = 4; // Input tensor names
+    repeated string outputs = 5; // Output tensor names
+}
+
+message Graph {
+    repeated Node nodes = 1;
+    map<string, Tensor> tensors = 2; // All tensors in the graph
+    string target = 3;               // Hardware target 
+    bool quantized = 4;             // Quantization flag
+}
