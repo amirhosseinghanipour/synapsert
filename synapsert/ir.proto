@@ -29,4 +29,11 @@ message Graph {
     map<string, Tensor> tensors = 2; // All tensors in the graph
     string target = 3;               // Hardware target 
     bool quantized = 4;             // Quantization flag
+    string model_name = 5;                 // Name of the model
+    string model_version = 6;             // Version of the model
+    string author = 7;                    // Author of the model
+    repeated string input_tensors = 8;    // Names of input tensors
+    repeated string output_tensors = 9;   // Names of output tensors
+    map<string, float> profiling_data = 10; // Profiling data for each node
+    string security_metadata = 11;         // Security-related metadata
 }
